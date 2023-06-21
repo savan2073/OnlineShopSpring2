@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Strona główna</title>
+  <link rel="stylesheet" th:href="@{/css/indexStyle.css}"/>
+  <link rel="stylesheet" th:href="@{/css/fragmentStyle.css}" />
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+<h1>Witaj na stronie głównej!</h1>
+<a th:href="@{products/addProduct}">Add product</a>
+<a th:href="@{products/page/1}">Lista</a>
+<a th:href="@{cart}">Cart</a>
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

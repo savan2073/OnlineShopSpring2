@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    width: 80%; /* Adjust the width as needed */
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table th {
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+table td {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #007bff;
+}

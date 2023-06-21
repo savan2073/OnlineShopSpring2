@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+  <link rel="stylesheet" th:href="@{/css/productListStyle.css}">
+  <link rel="stylesheet" th:href="@{/css/fragmentStyle.css}" />
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+<h1>Product List</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Add to cart</th>
+  </tr>
+  <tr th:each="product: ${products}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.price}"></td>
+    <td th:text="${product.description}"></td>
+    <td><a th:href="@{/products/editProduct/{id}(id=${product.id})}">Edit</a></td>
+    <td><a th:href="@{/products/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
+    <td><a th:href="@{/cart/add/{id}(id=${product.id})}">Add to cart</a></td>
+  </tr>
+</table>
+
+<div class="pagination">
+  <a th:href="@{/products/page/1}" th:if="${currentPage > 1}">First</a>
+  <a th:href="@{${prevPage}}" th:if="${currentPage > 1}">Prev</a>
+  <span th:text="${currentPage}"></span>
+  <a th:href="@{${nextPage}}" th:if="${totalPages > currentPage}">Next</a>
+
+</div>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

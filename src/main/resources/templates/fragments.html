@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/resources/static/css/fragmentStyle.css}"/>
+<body>
+<div th:fragment="header">
+  <header>
+    <nav>
+      <div class="logo">
+        <a th:href="@{/}"><img th:src="@{/images/logo.png}"></a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Szukaj produktu">
+      </div>
+      <div class="user">
+        <a th:href="@{/cart}"><img th:src="@{/images/shopping-cart.png}"></a>
+        <a th:href="@{/register}"><img th:src="@{/images/user.png}"></a>
+      </div>
+    </nav>
+  </header>
+</div>
+<div th:fragment="footer">
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Kolumna 1</h3>
+        <p>Tutaj możesz dodać treść dla kolumny 1.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Kolumna 2</h3>
+        <p>Tutaj możesz dodać treść dla kolumny 2.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Kolumna 3</h3>
+        <p>Tutaj możesz dodać treść dla kolumny 3.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
