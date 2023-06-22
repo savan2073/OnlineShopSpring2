@@ -22,17 +22,6 @@ nav {
     justify-content: flex-start;
 }
 
-.search-bar {
-    flex: 3;
-    justify-content: center;
-}
-
-.search-bar input {
-    width: 90%;
-    height: 30px;
-    padding: 5px;
-}
-
 .user {
     flex: 1;
     justify-content: flex-end;

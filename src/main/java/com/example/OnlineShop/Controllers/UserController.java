@@ -35,4 +35,10 @@ public class UserController {
     public String showLoginForm(){
         return "login";
     }
+
+    @PostMapping("/login")
+    public String loginUser(@ModelAttribute User user){
+
+        return "redirect:/";
+    }
 }
