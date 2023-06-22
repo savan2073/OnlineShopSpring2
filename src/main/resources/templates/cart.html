@@ -24,7 +24,8 @@
 </table>
 
 <p th:text="'Total Price: ' + ${cart.totalPrice}"></p>
-
-<a href="/checkout">Proceed to Checkout</a>
+<form method="post" th:action="@{/checkout}">
+  <button type="submit">Proceed to Checkout</button>
+</form>
 </body>
 </html>

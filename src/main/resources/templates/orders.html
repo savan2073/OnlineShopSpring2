@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All Orders</title>
+  <link rel="stylesheet" th:href="@{/resources/static/css/fragmentStyle.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+<h1>All Orders</h1>
+<table>
+  <tr>
+    <th>Order ID</th>
+    <th>User</th>
+    <th>Products</th>
+  </tr>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.id}"></td>
+    <td th:text="${order.user.username}"></td>
+    <td>
+      <ul>
+        <li th:each="product : ${order.products}" th:text="${product.name}"></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

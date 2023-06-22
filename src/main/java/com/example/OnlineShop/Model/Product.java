@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "product")
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,9 +18,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private Double price;
+    private double price;
     private String description;
 
-    @ManyToMany(mappedBy = "product")
-    private List<Order> orders = new ArrayList<>();
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 }

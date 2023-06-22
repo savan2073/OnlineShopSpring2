@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name = "order")
+@Entity
+@Table(name="customer_order")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,12 +18,14 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToMany
-    @JoinTable(name = "order_products",
+    @JoinTable(
+            name = "customer_order_products",
             joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> products;
 }
