@@ -5,6 +5,7 @@ import com.example.OnlineShop.Model.Order;
 import com.example.OnlineShop.Model.User;
 import com.example.OnlineShop.Repositories.OrderRepository;
 import com.example.OnlineShop.Repositories.UserRepository;
+import com.example.OnlineShop.Services.EmailService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,6 +23,9 @@ public class OrderController {
     private OrderRepository orderRepository;
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private EmailService emailService;
     @Autowired
     private Cart cart;
 
@@ -38,6 +42,7 @@ public class OrderController {
                     .orElseThrow(() -> new UsernameNotFoundException("User not found")));
             order.setProducts(cart.getProducts());
             orderRepository.save(order);
+            emailService.sendOrderConfirmation(order.getUser(), order);
             cart.clear();
         }
         return "redirect:/";
